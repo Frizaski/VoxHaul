@@ -9,7 +9,7 @@ export default function FavoritesPage() {
   const { favorites } = useFavorites()
 
   return (
-    <main className="min-h-[60vh] max-w-7xl mx-auto px-4 py-10 md:px-8">
+    <main className="w-full min-h-[60vh] max-w-7xl mx-auto px-4 py-10 md:px-8">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Produk Favorit</h1>
         <p className="mt-2 text-gray-600">
@@ -18,7 +18,7 @@ export default function FavoritesPage() {
       </div>
 
       {favorites.length > 0 ? (
-        <div className="grid grid-cols-1 mx-auto sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:max-w-5xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {favorites.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

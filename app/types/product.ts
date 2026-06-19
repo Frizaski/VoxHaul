@@ -16,4 +16,6 @@ export interface Product {
   sizes?: string[]
   description?: string
   shippingInfo?: string
+  location?: string
+  rating?: number
 }

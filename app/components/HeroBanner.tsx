@@ -65,7 +65,7 @@ export default function HeroBanner() {
         {slides.map((slide) => (
           <div
             key={slide.id}
-            className={`relative w-full shrink-0 aspect-[16/9] md:aspect-[1920/400] ${slide.bg} flex items-center justify-center`}
+            className={`relative w-full shrink-0 aspect-video md:aspect-1920/400 ${slide.bg} flex items-center justify-center`}
           >
             {/* Kalau ada foto, tampilkan foto. Kalau tidak, tampilkan placeholder */}
             {slide.src ? (

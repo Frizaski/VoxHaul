@@ -6,84 +6,92 @@ import Link from 'next/link'
 
 interface Category {
   title: string
-  items: string[]
+  href: string
 }
 
-const MENU_CATEGORIES: Category[] = [
-  {
-    title: 'Belanja (Shop)',
-    items: ['Pria (Men)', 'Wanita (Women)'],
-  },
-  {
-    title: 'Bantuan (Customer Care)',
-    items: ['Pusat Bantuan (FAQ)', 'Lacak Pesanan', 'Pengiriman', 'Pengembalian & Penukaran (Returns & Exchanges)', 'Cara Pembayaran'],
-  },
+const SHOP_ITEMS: Category[] = [
+  { title: 'Semua Produk', href: '/' },
+  { title: 'Pria (Men)', href: '/?gender=men' },
+  { title: 'Wanita (Women)', href: '/?gender=women' },
+]
+
+const ORIGIN_ITEMS: Category[] = [
+  { title: 'Brand Lokal', href: '/?origin=lokal' },
+  { title: 'Brand Internasional', href: '/?origin=internasional' },
 ]
 
 const CategoryMenu: React.FC = () => {
-  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
-    'Belanja (Shop)': true,
-    'Bantuan (Customer Care)': false,
+  const [expanded, setExpanded] = useState({
+    shop: true,
+    origin: true,
   })
 
-  const toggleCategory = (categoryTitle: string) => {
-    setExpandedCategories((prev) => ({
-      ...prev,
-      [categoryTitle]: !prev[categoryTitle],
-    }))
+  const toggle = (key: keyof typeof expanded) => {
+    setExpanded((prev) => ({ ...prev, [key]: !prev[key] }))
   }
 
   return (
-    <aside className="w-full md:w-64 bg-white">
-      <div className="space-y-4 p-4 md:p-0">
-        {MENU_CATEGORIES.map((category) => (
-          <div key={category.title} className="border-b border-gray-200 last:border-b-0">
-            {/* Category Header */}
-            <button
-              onClick={() => toggleCategory(category.title)}
-              className="w-full flex items-center justify-between py-3 px-0 md:px-3 hover:bg-gray-50 transition-colors rounded"
-              suppressHydrationWarning
-            >
-              <h3 className="font-semibold text-sm md:text-base text-gray-900">
-                {category.title}
-              </h3>
-              <HiChevronDown
-                className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${expandedCategories[category.title] ? 'rotate-180' : ''
-                  }`}
-              />
-            </button>
+    <aside className="w-full md:w-52 bg-white shrink-0">
+      <div className="space-y-1 p-4 md:p-0">
 
-            {/* Category Items */}
-            {expandedCategories[category.title] && (
-              <ul className="space-y-2 pb-3 px-0 md:px-3">
-                {category.items.map((item) => {
-                  let href = '#'
-                  if (item === 'Pria (Men)') href = '/?gender=men'
-                  if (item === 'Wanita (Women)') href = '/?gender=women'
+        {/* Belanja */}
+        <div className="border-b border-gray-100 last:border-b-0">
+          <button
+            onClick={() => toggle('shop')}
+            className="w-full flex items-center justify-between py-3 px-0 md:px-3 hover:bg-gray-50 transition-colors rounded"
+            suppressHydrationWarning
+          >
+            <h3 className="font-semibold text-sm text-gray-900">Belanja</h3>
+            <HiChevronDown
+              className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${expanded.shop ? 'rotate-180' : ''}`}
+            />
+          </button>
 
-                  if (category.title === 'Bantuan (Customer Care)') {
-                    if (item === 'Pusat Bantuan (FAQ)') href = '/help?topic=faq'
-                    if (item === 'Lacak Pesanan') href = '/help?topic=tracking'
-                    if (item === 'Pengiriman') href = '/help?topic=shipping'
-                    if (item === 'Pengembalian & Penukaran (Returns & Exchanges)') href = '/help?topic=returns'
-                    if (item === 'Cara Pembayaran') href = '/help?topic=payment'
-                  }
+          {expanded.shop && (
+            <ul className="space-y-1 pb-3 px-0 md:px-3">
+              {SHOP_ITEMS.map((item) => (
+                <li key={item.title}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-gray-500 hover:text-gray-900 hover:font-medium transition-colors block py-1"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
 
-                  return (
-                    <li key={item}>
-                      <Link
-                        href={href}
-                        className="text-sm text-gray-600 hover:text-gray-900 hover:font-medium transition-colors block py-1"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            )}
-          </div>
-        ))}
+        {/* Asal Brand */}
+        <div className="border-b border-gray-100 last:border-b-0">
+          <button
+            onClick={() => toggle('origin')}
+            className="w-full flex items-center justify-between py-3 px-0 md:px-3 hover:bg-gray-50 transition-colors rounded"
+            suppressHydrationWarning
+          >
+            <h3 className="font-semibold text-sm text-gray-900">Asal Brand</h3>
+            <HiChevronDown
+              className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${expanded.origin ? 'rotate-180' : ''}`}
+            />
+          </button>
+
+          {expanded.origin && (
+            <ul className="space-y-1 pb-3 px-0 md:px-3">
+              {ORIGIN_ITEMS.map((item) => (
+                <li key={item.title}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-gray-500 hover:text-gray-900 hover:font-medium transition-colors block py-1"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
       </div>
     </aside>
   )

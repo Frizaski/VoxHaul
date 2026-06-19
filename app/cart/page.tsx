@@ -42,10 +42,10 @@ export default function CartPage() {
 
   return (
     <main className="min-h-[70vh] bg-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-10 md:px-8 lg:grid-cols-[1fr_420px]">
+      <div className="w-full mx-auto grid max-w-7xl gap-10 px-4 py-10 md:px-8 lg:grid-cols-[1fr_420px]">
         <section>
           <h1 className="text-2xl font-bold text-gray-900">
-            KERANJANG ({totalItems} ITEM)
+            Keranjang ({totalItems} Item)
           </h1>
 
           {cartItems.length > 0 ? (
@@ -56,7 +56,7 @@ export default function CartPage() {
                     key={`${item.product.id}-${item.size}`}
                     className="grid gap-5 py-8 sm:grid-cols-[160px_1fr_auto]"
                   >
-                    <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
+                    <div className="relative aspect-4/3 overflow-hidden bg-gray-100 rounded-lg">
                       <Image
                         src={item.product.image}
                         alt={item.product.name}
@@ -126,23 +126,7 @@ export default function CartPage() {
                 ))}
               </div>
 
-              <div className="border border-gray-200 rounded-xl p-6 mt-10">
-                <h2 className="text-lg font-bold mb-4 border-b border-gray-200 pb-4">Alamat Pengiriman</h2>
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Nama Penerima</label>
-                    <input type="text" placeholder="Masukkan nama lengkap" className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:border-black" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Alamat Lengkap</label>
-                    <textarea rows={3} placeholder="Nama jalan, nomor rumah, RT/RW, kecamatan..." className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:border-black"></textarea>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Nomor HP</label>
-                    <input type="tel" placeholder="08.." className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:border-black" />
-                  </div>
-                </div>
-              </div>
+
             </>
           ) : (
             <div className="mt-8 border border-gray-200 p-10 text-center rounded-xl">
@@ -160,9 +144,9 @@ export default function CartPage() {
           )}
         </section>
 
-        <aside className="h-fit border border-gray-200 p-6 md:p-8">
+        <aside className="h-fit border border-gray-200 rounded-xl p-6 md:p-8">
           <h2 className="text-xl font-bold">
-            RINGKASAN PESANAN
+            Ringkasan Pesanan
           </h2>
 
           <div className="mt-8 space-y-5 text-lg">
@@ -181,7 +165,25 @@ export default function CartPage() {
           </div>
 
           <h3 className="mt-8 font-bold text-gray-500">
-            METODE PEMBAYARAN
+            Alamat Pengiriman
+          </h3>
+          <div className="mt-4 space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Nama Penerima</label>
+              <input type="text" placeholder="Masukkan nama lengkap" className="w-full border border-gray-300 rounded-lg p-3 text-sm outline-none focus:border-black" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Alamat Lengkap</label>
+              <textarea rows={3} placeholder="Nama jalan, nomor rumah, RT/RW..." className="w-full border border-gray-300 rounded-lg p-3 text-sm outline-none focus:border-black"></textarea>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Nomor HP</label>
+              <input type="tel" placeholder="08.." className="w-full border border-gray-300 rounded-lg p-3 text-sm outline-none focus:border-black" />
+            </div>
+          </div>
+
+          <h3 className="mt-8 font-bold text-gray-500">
+            Metode Pembayaran
           </h3>
           <div className="mt-4 space-y-3">
             {PAYMENT_METHODS.map((method) => (

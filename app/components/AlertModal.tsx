@@ -13,8 +13,8 @@ export default function AlertModal({ type, onClose, onConfirm }: AlertModalProps
   if (!type) return null
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 p-4">
-      <div className="bg-white rounded-3xl p-8 max-w-[400px] w-full text-center shadow-2xl relative">
+    <div className="fixed inset-0 z-999 flex items-center justify-center bg-black/60 p-4">
+      <div className="bg-white rounded-3xl p-8 max-w-100 w-full text-center shadow-2xl relative">
         {type === 'oops' && (
           <div className="flex flex-col items-center">
             <Image 

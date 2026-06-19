@@ -21,13 +21,14 @@ export default function RootLayout({
         <title>VoxHaul</title>
         <meta name="description" content="Marketplace Creativox" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
       </head>
       <body className="flex flex-col min-h-screen">
         <FavoritesProvider>
           <CartProvider>
             <Navbar />
-            <div className="flex-grow flex flex-col">
+            <div className="grow flex flex-col">
               {children}
             </div>
           </CartProvider>

@@ -18,7 +18,7 @@ const PAYMENT_METHODS = [
 export default function CheckoutPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
   const params = use(searchParams)
   const router = useRouter()
-  
+
   const productId = typeof params.id === 'string' ? parseInt(params.id, 10) : null
   const size = typeof params.size === 'string' ? params.size : ''
   const qty = typeof params.qty === 'string' ? parseInt(params.qty, 10) : 1
@@ -105,7 +105,7 @@ export default function CheckoutPage({ searchParams }: { searchParams: Promise<{
 
         <aside className="h-fit border border-gray-200 p-6 md:p-8 rounded-xl">
           <h2 className="text-xl font-bold">
-            RINGKASAN PESANAN
+            Ringkasan Pesanan
           </h2>
 
           <div className="mt-8 space-y-5 text-lg">
@@ -124,15 +124,15 @@ export default function CheckoutPage({ searchParams }: { searchParams: Promise<{
           </div>
 
           <h3 className="mt-8 font-bold text-gray-500">
-            METODE PEMBAYARAN
+            Metode Pembayaran
           </h3>
           <div className="mt-4 space-y-3">
             {PAYMENT_METHODS.map((method) => (
               <label
                 key={method}
                 className={`flex cursor-pointer items-center gap-4 border p-4 rounded-xl transition-colors ${paymentMethod === method
-                    ? 'border-black bg-gray-50'
-                    : 'border-gray-200'
+                  ? 'border-black bg-gray-50'
+                  : 'border-gray-200'
                   }`}
               >
                 <input

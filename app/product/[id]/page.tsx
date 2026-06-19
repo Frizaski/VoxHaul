@@ -88,7 +88,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         {/* Kiri: Galeri Gambar */}
         <section className="w-full lg:w-3/5">
           {/* Gambar Utama */}
-          <div className="relative aspect-[3/4] md:aspect-[4/5] bg-gray-100 mb-4 overflow-hidden rounded">
+          <div className="relative aspect-3/4 md:aspect-4/5 bg-gray-100 mb-4 overflow-hidden rounded">
             <Image
               src={images[mainImageIndex]}
               alt={product.name}
@@ -153,7 +153,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`min-w-[3rem] h-12 px-4 rounded border font-medium transition-colors ${selectedSize === size
+                  className={`min-w-12 h-12 px-4 rounded border font-medium transition-colors ${selectedSize === size
                     ? 'border-black bg-black text-white rounded-xl'
                     : 'border-gray-300 bg-white text-gray-900 hover:border-black rounded-xl'
                     }`}
@@ -201,7 +201,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </button>
             <button
               onClick={() => toggleFavorite(product)}
-              className="w-full flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-black border border-gray-300 font-medium py-4 rounded transition-colors rounded-xl"
+              className="w-full flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-black border border-gray-300 font-medium py-4 transition-colors rounded-xl"
             >
               {favorite ? (
                 <>

@@ -28,7 +28,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsA,
     sizes: sizesA,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Jakarta',
+    rating: 4.8,
   },
   {
     id: 2,
@@ -42,7 +44,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsB,
     sizes: sizesB,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Bandung',
+    rating: 4.6,
   },
   {
     id: 3,
@@ -56,7 +60,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsC,
     sizes: sizesC,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Surabaya',
+    rating: 4.5,
   },
   {
     id: 4,
@@ -70,7 +76,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsD,
     sizes: sizesD,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Jakarta',
+    rating: 4.3,
   },
   {
     id: 5,
@@ -84,7 +92,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsE,
     sizes: sizesA,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Yogyakarta',
+    rating: 4.7,
   },
   {
     id: 6,
@@ -98,7 +108,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsA,
     sizes: sizesB,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Medan',
+    rating: 4.4,
   },
   {
     id: 7,
@@ -112,7 +124,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsB,
     sizes: sizesC,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Bandung',
+    rating: 4.9,
   },
   {
     id: 8,
@@ -126,7 +140,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsC,
     sizes: sizesD,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Surabaya',
+    rating: 4.2,
   },
   {
     id: 9,
@@ -140,7 +156,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsD,
     sizes: sizesA,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Jakarta',
+    rating: 4.6,
   },
   {
     id: 10,
@@ -154,7 +172,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsE,
     sizes: sizesB,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Semarang',
+    rating: 4.5,
   },
   {
     id: 11,
@@ -168,7 +188,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsA,
     sizes: sizesC,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Bandung',
+    rating: 4.8,
   },
   {
     id: 12,
@@ -182,7 +204,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsB,
     sizes: sizesD,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Jakarta',
+    rating: 4.7,
   },
   {
     id: 13,
@@ -196,7 +220,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsC,
     sizes: sizesA,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Yogyakarta',
+    rating: 4.3,
   },
   {
     id: 14,
@@ -210,7 +236,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsD,
     sizes: sizesB,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Surabaya',
+    rating: 4.1,
   },
   {
     id: 15,
@@ -224,7 +252,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsE,
     sizes: sizesC,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Medan',
+    rating: 4.4,
   },
   {
     id: 16,
@@ -237,7 +267,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     images: ['/Assets/Katalog/Vest Jeans 1.png', '/Assets/Katalog/Vest Jeans 1_ Zoom.png'],
     colors: colorsA,
     sizes: sizesD,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Jakarta',
+    rating: 4.6,
   },
   {
     id: 17,
@@ -251,7 +283,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsB,
     sizes: sizesA,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Bandung',
+    rating: 4.5,
   },
   {
     id: 18,
@@ -265,7 +299,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsC,
     sizes: sizesB,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Surabaya',
+    rating: 4.7,
   },
   {
     id: 19,
@@ -279,7 +315,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsD,
     sizes: sizesC,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Semarang',
+    rating: 4.2,
   },
   {
     id: 20,
@@ -293,7 +331,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsE,
     sizes: sizesD,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Jakarta',
+    rating: 4.9,
   },
   {
     id: 21,
@@ -307,7 +347,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsA,
     sizes: sizesA,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Bandung',
+    rating: 4.8,
   },
   {
     id: 22,
@@ -321,7 +363,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsB,
     sizes: sizesB,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Yogyakarta',
+    rating: 4.6,
   },
   {
     id: 23,
@@ -335,7 +379,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsC,
     sizes: sizesC,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Jakarta',
+    rating: 4.4,
   },
   {
     id: 24,
@@ -349,7 +395,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsD,
     sizes: sizesD,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Surabaya',
+    rating: 4.3,
   },
   {
     id: 25,
@@ -363,7 +411,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsE,
     sizes: sizesA,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Medan',
+    rating: 4.5,
   },
   {
     id: 26,
@@ -377,7 +427,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsA,
     sizes: sizesB,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Bandung',
+    rating: 4.7,
   },
   {
     id: 27,
@@ -391,7 +443,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsB,
     sizes: sizesC,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Semarang',
+    rating: 4.0,
   },
   {
     id: 28,
@@ -405,7 +459,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsC,
     sizes: sizesD,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Jakarta',
+    rating: 4.6,
   },
   {
     id: 29,
@@ -419,7 +475,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsD,
     sizes: sizesA,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Yogyakarta',
+    rating: 4.4,
   },
   {
     id: 30,
@@ -433,7 +491,9 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsE,
     sizes: sizesB,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Surabaya',
+    rating: 4.1,
   },
   {
     id: 31,
@@ -447,6 +507,8 @@ export const DUMMY_PRODUCTS: Product[] = [
     colors: colorsA,
     sizes: sizesC,
     description: defaultDescription,
-    shippingInfo: defaultShippingInfo
+    shippingInfo: defaultShippingInfo,
+    location: 'Jakarta',
+    rating: 4.9,
   }
 ]
