@@ -72,7 +72,7 @@ const Navbar = () => {
                     <Link href="/" className="text-sm font-semibold text-gray-800 hover:text-orange-500">Semua</Link>
                     <Link href="/?gender=men" className="text-sm font-semibold text-gray-800 hover:text-orange-500">Men</Link>
                     <Link href="/?gender=women" className="text-sm font-semibold text-gray-800 hover:text-orange-500">Women</Link>
-                    <div 
+                    <div
                         className="relative py-4 -my-4"
                         onMouseEnter={() => setIsBrandHovered(true)}
                         onMouseLeave={() => setIsBrandHovered(false)}
@@ -126,7 +126,7 @@ const Navbar = () => {
                     <Link href="/cart" aria-label="Lihat keranjang" className="relative flex items-center justify-center rounded py-1.5 px-2.5 text-black cursor-pointer hover:bg-black/10 transition-colors">
                         <FaCartShopping className="text-2xl" />
                         {totalItems > 0 && (
-                            <span className="absolute -top-1 -right-1 flex min-w-5 h-5 items-center justify-center rounded-full bg-black px-1 text-xs font-bold text-white">
+                            <span className="absolute -top-1 -right-1 flex min-w-5 h-5 items-center justify-center rounded-full bg-red-500 px-1 text-xs font-bold text-white">
                                 {totalItems}
                             </span>
                         )}
