@@ -1,65 +1,79 @@
-import Image from "next/image";
+import HeroBanner from './components/HeroBanner'
+import CategoryMenu from './components/CategoryMenu'
+import ProductCard from './components/ProductCard'
 
-export default function Home() {
+import { DUMMY_PRODUCTS } from './data/dummyProducts'
+
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
+  const params = await searchParams
+  const genderFilter = typeof params.gender === 'string' ? params.gender : undefined
+  const searchFilter = typeof params.search === 'string' ? params.search.toLowerCase() : undefined
+  const originFilter = typeof params.origin === 'string' ? params.origin.toLowerCase() : undefined
+
+  const LOCAL_BRANDS = ['erigo', 'sejauh mata memandang', 'sepatu compass', 'buttonscarves', 'executive'];
+  const INTL_BRANDS = ['uniqlo', 'zara', 'nike', 'levis', 'ralph lauren'];
+
+  let displayedProducts = DUMMY_PRODUCTS
+
+  if (genderFilter) {
+    displayedProducts = displayedProducts.filter((p) => p.gender?.toLowerCase() === genderFilter.toLowerCase())
+  }
+
+  if (searchFilter) {
+    displayedProducts = displayedProducts.filter((p) =>
+      p.name.toLowerCase().includes(searchFilter) ||
+      p.brand.toLowerCase().includes(searchFilter) ||
+      p.category?.toLowerCase().includes(searchFilter)
+    )
+  }
+
+  if (originFilter === 'lokal') {
+    displayedProducts = displayedProducts.filter((p) => LOCAL_BRANDS.includes(p.brand.toLowerCase()))
+  } else if (originFilter === 'internasional') {
+    displayedProducts = displayedProducts.filter((p) => INTL_BRANDS.includes(p.brand.toLowerCase()))
+  }
+
+  let catalogTitle = 'Katalog VoxHaul'
+  if (searchFilter) {
+    catalogTitle = `Hasil Pencarian: "${params.search}"`
+  } else if (originFilter === 'lokal') {
+    catalogTitle = `Katalog Brand Lokal`
+  } else if (originFilter === 'internasional') {
+    catalogTitle = `Katalog Brand Internasional`
+  } else if (genderFilter) {
+    catalogTitle = `Katalog VoxHaul - ${genderFilter.charAt(0).toUpperCase() + genderFilter.slice(1)}`
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    <main>
+      <HeroBanner />
+      <div className="flex flex-col md:flex-row gap-6 p-4 md:p-8 max-w-auto mx-auto">
+        {/* Sidebar Kategori */}
+        <CategoryMenu />
+
+        {/* Content Area */}
+        <section className="flex-1">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            {catalogTitle}
+          </h2>
+          {displayedProducts.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-4">
+              {displayedProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <div className="py-12 text-center text-gray-500 bg-gray-50 rounded-xl border border-gray-200">
+              <p className="text-lg">Yah, produk tidak ditemukan :(</p>
+              <p className="text-sm mt-2">Coba gunakan kata kunci pencarian yang lain.</p>
+            </div>
+          )}
+        </section>
+      </div>
+    </main>
+  )
 }
