@@ -42,7 +42,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const favorite = isFavorite(product.id)
 
   const [isDetailOpen, setIsDetailOpen] = useState(true)
-  const [isShippingOpen, setIsShippingOpen] = useState(false)
+  const [isShippingOpen, setIsShippingOpen] = useState(true)
 
   // Handlers
   const nextImage = () => {
@@ -83,10 +83,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         <span className="text-black font-medium">{product.name}</span>
       </nav>
 
-      <div className="flex flex-col lg:flex-row gap-10 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
 
         {/* Kiri: Galeri Gambar */}
-        <section className="w-full lg:w-3/5">
+        <section className="lg:col-span-3">
           {/* Gambar Utama */}
           <div className="relative aspect-3/4 md:aspect-4/5 bg-gray-100 mb-4 overflow-hidden rounded">
             <Image
@@ -138,7 +138,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         </section>
 
         {/* Kanan: Detail Produk */}
-        <section className="w-full lg:w-2/5 flex flex-col">
+        <section className="lg:col-span-2 flex flex-col">
           <div className="mb-6">
             <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">{product.brand}</p>
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{product.name}</h1>
@@ -228,11 +228,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 Detail Produk
                 <HiChevronDown className={`text-xl transition-transform duration-300 ${isDetailOpen ? 'rotate-180' : ''}`} />
               </button>
-              {isDetailOpen && (
-                <div className="pb-4 text-sm text-gray-600 leading-relaxed">
-                  {product.description}
+              <div className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${isDetailOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                <div className="overflow-hidden">
+                  <div className="pb-4 text-sm text-gray-600 leading-relaxed">
+                    {product.description}
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
 
             {/* Pengiriman */}
@@ -244,11 +246,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 Pengiriman & Pengembalian
                 <HiChevronDown className={`text-xl transition-transform duration-300 ${isShippingOpen ? 'rotate-180' : ''}`} />
               </button>
-              {isShippingOpen && (
-                <div className="pb-4 text-sm text-gray-600 leading-relaxed">
-                  {product.shippingInfo}
+              <div className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${isShippingOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                <div className="overflow-hidden">
+                  <div className="pb-4 text-sm text-gray-600 leading-relaxed">
+                    {product.shippingInfo}
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </section>
