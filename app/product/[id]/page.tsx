@@ -83,7 +83,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         <span className="text-black font-medium">{product.name}</span>
       </nav>
 
-      <div className="flex flex-col lg:flex-row gap-10">
+      <div className="flex flex-col lg:flex-row gap-10 items-start">
 
         {/* Kiri: Galeri Gambar */}
         <section className="w-full lg:w-3/5">
